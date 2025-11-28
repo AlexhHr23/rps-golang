@@ -14,7 +14,7 @@ func main() {
 	router.HandleFunc("/new", handlers.NewGame)
 	router.HandleFunc("/game", handlers.Game)
 	router.HandleFunc("/play", handlers.Play)
-	router.HandleFunc("/about", handlers.Aboiut)
+	router.HandleFunc("/about", handlers.About)
 
 	port := ":8080"
 	log.Printf("Servidor escuchado en http://localhost%s\n", port)
