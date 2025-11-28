@@ -13,7 +13,7 @@ const (
 )
 
 func Index(w http.ResponseWriter, r *http.Request) {
-	renderTemplate(w, templateBase, "index.html", nil)
+	renderTemplate(w, "index.html", nil)
 }
 
 func NewGame(w http.ResponseWriter, r *http.Request) {
@@ -32,8 +32,8 @@ func Aboiut(w http.ResponseWriter, r *http.Request) {
 	fmt.Fprintln(w, "Acerca de")
 }
 
-func renderTemplate(w http.ResponseWriter, base, page string, data any) {
-	tpl := template.Must(template.ParseFiles(base, templateDir+page))
+func renderTemplate(w http.ResponseWriter, page string, data any) {
+	tpl := template.Must(template.ParseFiles(templateBase, templateDir+page))
 	err := tpl.ExecuteTemplate(w, "base", data)
 	if err != nil {
 		http.Error(w, "Error al analizar plantillas", http.StatusInternalServerError)
